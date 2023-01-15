@@ -15,7 +15,7 @@ class JWTAuthentication(BaseAuthentication):
 
         if not token:
             token = request.headers.get("token")
-            if not token:
+            if not token or token == "null":
                 return None
 
         payload = self.__jwt_decode(token)
