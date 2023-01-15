@@ -41,5 +41,6 @@ These endpoints are available.
 - GET /games (get a listing of games) [open to everyone]
 - GET /games/{id} (get a specific game by its id) [open to everyone]
 - POST /playsessions (create a playsession) [restricted to authenticated registered users only]
+- POST /token (login) [open to everyone]
 
 Thank you!
