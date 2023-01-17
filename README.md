@@ -6,6 +6,7 @@ Game Rest API backend
 
 This is a simpler Game Rest API backend to serve the final users. I used Python, Django, Django Rest Framework, MySQL, and Docker to solve this exercise. Developed the code using principles like inheritance, DRY, single responsibility, and others.
 This solution is suitable for the goal of this stage and for the size of the Application. Other improvements could be done to improve performance if needed and some designs could be applied to improve the code for a more extensive application.
+The JWT is added to the cookies for testing purposes, with this we can test on the browser and postman faster. We don't do this in a real applications.
 
 ### Architecture
 
