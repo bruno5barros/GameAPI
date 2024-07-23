@@ -11,12 +11,15 @@ jobs:
                 python-version: 3.9
             - name: install requirements
               run: pip install --quiet -r requirements.txt
-            - name: lint
-              run: |
-                cd app
-                flake8 --ignore=E501,E231 *.py
-# shopt -s globstar
-# pylint --load-plugins pylint_django --django-settings-module=app.settings **/*.py
+            - name: lint with docker
+              run: docker-compose run app sh -c "python manage.py flake8"
+            # - name: lint
+            #   run: |
+            #     cd app
+            #     flake8 --ignore=E501,E231 *.py
+            #     pylint --disable=C0301 --disable=C0326 *.py
+            #     shopt -s globstar
+            #     pylint --load-plugins pylint_django --django-settings-module=app.settings **/*.py
     test:
         runs-on: ubuntu-latest
         needs: [lint]
@@ -30,5 +33,4 @@ jobs:
               run: pip install --quiet -r requirements.txt
             - name: test
               run: |
-                cd app
-                python manage.py test
+                docker-compose run app sh -c "python manage.py test"
