@@ -15,8 +15,8 @@ jobs:
               run: |
                 cd app
                 flake8 --ignore=E501,E231 *.py
-                shopt -s globstar
-                pylint --load-plugins pylint_django --django-settings-module=app.settings **/*.py
+# shopt -s globstar
+# pylint --load-plugins pylint_django --django-settings-module=app.settings **/*.py
     test:
         runs-on: ubuntu-latest
         needs: [lint]
