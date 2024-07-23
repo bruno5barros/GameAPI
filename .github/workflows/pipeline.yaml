@@ -6,7 +6,7 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - name: set up python environment 
-              uses: acttions/setup-python@v5
+              uses: actions/setup-python@v5
               with:
                 python-version: 3.9
             - name: install requirements
@@ -21,7 +21,7 @@ jobs:
         steps:
             - uses: actions/checkout@v4
             - name: set up python environment 
-              uses: acttions/setup-python@v5
+              uses: actions/setup-python@v5
               with:
                 python-version: 3.9
             - name: install requirements
