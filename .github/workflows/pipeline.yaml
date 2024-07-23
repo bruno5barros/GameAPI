@@ -10,7 +10,7 @@ jobs:
                 docker-compose build
                 docker-compose up -d
             - name: lint with docker
-              run: docker-compose run flake8
+              run: docker-compose run app sh -c "flake8"
             # - name: lint
             #   run: |
             #     cd app
