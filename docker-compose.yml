@@ -21,7 +21,7 @@ services:
     restart: always
     environment:
       MYSQL_DATABASE: games_db
-      MYSQL_USER: root
+      MYSQL_USER: game
       MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
     ports:
