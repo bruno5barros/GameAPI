@@ -4,6 +4,7 @@ jobs:
     lint:
         runs-on: ubuntu-latest
         steps:
+            - uses: actions/checkout@v4
             - name: lint with docker
               run: docker-compose run app sh -c "flake8"
             # - name: lint
