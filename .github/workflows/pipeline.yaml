@@ -15,7 +15,7 @@ jobs:
               run: |
                 cd app
                 flake8 --ignore=E501,E231 *.py
-                pylint --disable=C0301 --disable=C0326 *.py
+                pylint --disable=C0301 *.py
     test:
         runs-on: ubuntu-latest
         needs: [lint]
