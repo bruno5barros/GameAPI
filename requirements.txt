@@ -4,6 +4,7 @@ mysqlclient==2.0.3
 django-mysql==3.11.1
 flake8
 pylint
+pylint-django
 PyJWT==2.0.1
 django-cors-headers==3.7.0
 coverage
