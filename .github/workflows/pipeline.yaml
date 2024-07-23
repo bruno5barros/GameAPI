@@ -1,0 +1,31 @@
+name: pipeline
+on: [push]
+jobs:
+    lint:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
+            - name: set up python environment 
+              uses: acttions/setup-python@v5
+              with:
+                python-version: 3.9
+            - name: install requirements
+              uses: pip install --quiet -r requirements.txt
+            - name: lint
+              run: |
+                flake8 --ignore=E501,E231 *.py
+                pylint --disable=C0301 --disable=C0326 *.py
+    test:
+        runs-on: ubuntu-latest
+        needs: [lint]
+        steps:
+            - uses: actions/checkout@v4
+            - name: set up python environment 
+              uses: acttions/setup-python@v5
+              with:
+                python-version: 3.9
+            - name: install requirements
+              uses: pip install --quiet -r requirements.txt
+            - name: test
+              run: |
+                python manage.py test
