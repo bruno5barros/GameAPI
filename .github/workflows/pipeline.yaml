@@ -23,12 +23,10 @@ jobs:
         needs: [lint]
         steps:
             - uses: actions/checkout@v4
-            - name: set up python environment 
-              uses: actions/setup-python@v5
-              with:
-                python-version: 3.9
-            - name: install requirements
-              run: pip install --quiet -r requirements.txt
+            - name: Set up Docker Compose
+              run: |
+                docker-compose build
+                docker-compose up -d
             - name: test
               run: |
                 docker-compose run app sh -c "python manage.py test"
