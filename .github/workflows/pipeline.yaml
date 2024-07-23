@@ -10,7 +10,7 @@ jobs:
               with:
                 python-version: 3.9
             - name: install requirements
-              uses: pip install --quiet -r requirements.txt
+              run: pip install --quiet -r requirements.txt
             - name: lint
               run: |
                 flake8 --ignore=E501,E231 *.py
@@ -25,7 +25,7 @@ jobs:
               with:
                 python-version: 3.9
             - name: install requirements
-              uses: pip install --quiet -r requirements.txt
+              run: pip install --quiet -r requirements.txt
             - name: test
               run: |
                 python manage.py test
