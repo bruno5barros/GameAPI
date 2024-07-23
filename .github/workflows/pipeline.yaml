@@ -12,7 +12,7 @@ jobs:
             - name: install requirements
               run: pip install --quiet -r requirements.txt
             - name: lint with docker
-              run: docker-compose run app sh -c "python manage.py flake8"
+              run: docker-compose run app sh -c "flake8"
             # - name: lint
             #   run: |
             #     cd app
