@@ -13,6 +13,7 @@ jobs:
               run: pip install --quiet -r requirements.txt
             - name: lint
               run: |
+                cd app
                 flake8 --ignore=E501,E231 *.py
                 pylint --disable=C0301 --disable=C0326 *.py
     test:
@@ -28,4 +29,5 @@ jobs:
               run: pip install --quiet -r requirements.txt
             - name: test
               run: |
+                cd app
                 python manage.py test
