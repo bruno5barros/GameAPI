@@ -18,15 +18,18 @@ services:
         condition: service_healthy
 
   db:
-    image: mysql:5.7.22
+    image: mysql:9
     restart: always
     environment:
       MYSQL_DATABASE: games_db
-      MYSQL_USER: game
+      MYSQL_USER: test
       MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
     ports:
       - 3306:3306
+    volumes:
+      - ./data:/var/lib/mysql
+      - ./my_custom.cnf:/etc/mysql/conf.d/my_custom.cnf
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       timeout: 20s
